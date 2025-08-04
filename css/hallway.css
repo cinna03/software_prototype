@@ -1,0 +1,60 @@
+/* Hallway Page Styles - Simplified */
+.hallway-container {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/images/download (24).jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Enter Button Styles */
+.enter-button {
+  position: relative;
+  z-index: 10;
+}
+
+.enter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: #FFD700;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  color: #000000 !important;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.enter-link:hover {
+  background: #FFED4E;
+  border-color: rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  color: #000000 !important;
+}
+
+.enter-link span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #000000 !important;
+} 

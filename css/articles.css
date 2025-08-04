@@ -1,0 +1,99 @@
+/* Articles Page Styles */
+.articles {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 10rem 9% 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.articles-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 90rem;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+}
+
+.articles-icon {
+  position: relative;
+  width: 25rem;
+  height: 35rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background-color: var(--second-bg-color);
+}
+
+.articles-icon:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.articles-icon .icon-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+.article-image-1 {
+  background-image: url('../images/download (25).jpg');
+}
+
+.article-image-2 {
+  background-image: url('../images/download (24).jpg');
+}
+
+.article-image-3 {
+  background-image: url('../images/download (25).jpg');
+}
+
+.articles-icon:hover .icon-image {
+  transform: scale(1.05);
+}
+
+.articles-icon .icon-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.articles-icon:hover .icon-label {
+  transform: translateY(0);
+}
+
+/* Responsive design for articles icons */
+@media (max-width: 768px) {
+  .articles-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .articles-icon {
+    width: 20rem;
+    height: 30rem;
+  }
+} 
