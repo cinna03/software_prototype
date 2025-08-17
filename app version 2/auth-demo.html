@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Demo - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .demo-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-status {
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        .auth-status.authenticated {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        
+        .auth-status.not-authenticated {
+            background: #fef2f2;
+            color: #7f1d1d;
+            border: 1px solid #ef4444;
+        }
+        
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .demo-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .demo-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+        
+        .test-section h3 {
+            margin-top: 0;
+            color: #1e293b;
+        }
+        
+        .credentials {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .credentials strong {
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="profile.html" class="nav-link">Profile</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="calendar.html" class="nav-link">Calendar</a>
+        </nav>
+        
+        <main class="demo-content">
+            <h2 class="content-title">🔐 Authentication Demo</h2>
+            <p class="content-text">Test your authentication system here!</p>
+            
+            <div class="test-section">
+                <h3>Current Authentication Status</h3>
+                <div id="authStatus" class="auth-status">
+                    Checking authentication status...
+                </div>
+                <div id="userInfo" style="display: none;">
+                    <h4>User Information:</h4>
+                    <ul id="userDetails"></ul>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <h3>Test Credentials</h3>
+                <div class="credentials">
+                    <strong>Demo Login:</strong><br>
+                    Email: demo@cinnarios.com<br>
+                    Password: password123
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <h3>Authentication Actions</h3>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="goToLogin()">Go to Login</button>
+                    <button class="demo-btn" onclick="goToSignup()">Go to Signup</button>
+                    <button class="demo-btn" onclick="testProtectedRoute()">Test Protected Route</button>
+                    <button class="demo-btn" onclick="refreshStatus()">Refresh Status</button>
+                </div>
+            </div>
+            
+            <div class="test-section">
+                <h3>Protected Pages Test</h3>
+                <p>Try accessing these pages when logged out:</p>
+                <div class="demo-buttons">
+                    <button class="demo-btn" onclick="testRoute('dashboard.html')">Dashboard</button>
+                    <button class="demo-btn" onclick="testRoute('profile.html')">Profile</button>
+                    <button class="demo-btn" onclick="testRoute('calendar.html')">Calendar</button>
+                    <button class="demo-btn" onclick="testRoute('events.html')">Events</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+    <script src="auth-enhanced.js"></script>
+    <script>
+        // Demo page functionality
+        function updateAuthStatus() {
+            const statusEl = document.getElementById('authStatus');
+            const userInfoEl = document.getElementById('userInfo');
+            const userDetailsEl = document.getElementById('userDetails');
+            
+            if (authManager && authManager.isUserAuthenticated()) {
+                statusEl.className = 'auth-status authenticated';
+                statusEl.textContent = '✅ User is authenticated!';
+                
+                const user = authManager.getCurrentUser();
+                if (user) {
+                    userInfoEl.style.display = 'block';
+                    userDetailsEl.innerHTML = `
+                        <li><strong>Name:</strong> ${user.firstName} ${user.lastName}</li>
+                        <li><strong>Email:</strong> ${user.email}</li>
+                        <li><strong>User ID:</strong> ${user.id}</li>
+                    `;
+                }
+            } else {
+                statusEl.className = 'auth-status not-authenticated';
+                statusEl.textContent = '❌ User is not authenticated';
+                userInfoEl.style.display = 'none';
+            }
+        }
+        
+        function goToLogin() {
+            window.location.href = 'login.html';
+        }
+        
+        function goToSignup() {
+            window.location.href = 'signup.html';
+        }
+        
+        function testProtectedRoute() {
+            if (authManager && authManager.isUserAuthenticated()) {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('You need to login first! You will be redirected to login page.');
+                window.location.href = 'login.html?returnUrl=' + encodeURIComponent(window.location.href);
+            }
+        }
+        
+        function testRoute(route) {
+            window.location.href = route;
+        }
+        
+        function refreshStatus() {
+            updateAuthStatus();
+            alert('Status refreshed!');
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit for auth to initialize
+            setTimeout(updateAuthStatus, 500);
+        });
+        
+        // Update status periodically
+        setInterval(updateAuthStatus, 2000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-features.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <!-- Navigation Links -->
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="calendar.html" class="nav-link">Calendar</a>
+        </nav>
+        
+        <main class="dashboard-content">
+            <div class="dashboard-header">
+                <h2 class="content-title">Welcome to Your Dashboard</h2>
+                <p class="content-text">Track your progress and explore personalized content</p>
+            </div>
+
+            <!-- User Stats Section -->
+            <section class="dashboard-section">
+                <h3 class="section-title">Your Performance Summary</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📺</div>
+                        <h4>Documentaries Interacted</h4>
+                        <p class="stat-number">18</p>
+                        <p class="stat-label">Total interactions</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎪</div>
+                        <h4>Events Attended</h4>
+                        <p class="stat-number">7</p>
+                        <p class="stat-label">This year</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💬</div>
+                        <h4>Forum Participation</h4>
+                        <p class="stat-number">23</p>
+                        <p class="stat-label">Discussions joined</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <h4>Favorites</h4>
+                        <p class="stat-number">15</p>
+                        <p class="stat-label">Total saved</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Features Section -->
+            <section class="dashboard-section">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="toggleFeature('notifications')">
+                        <div class="action-icon">🔔</div>
+                        <span>Notifications</span>
+                        <div class="toggle-switch" id="notificationToggle">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </button>
+                    
+                    <button class="action-btn" onclick="toggleFeature('darkMode')">
+                        <div class="action-icon">🌙</div>
+                        <span>Dark Mode</span>
+                        <div class="toggle-switch" id="darkModeToggle">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </button>
+                    
+                    <button class="action-btn" onclick="toggleFeature('autoPlay')">
+                        <div class="action-icon">▶️</div>
+                        <span>Auto Play</span>
+                        <div class="toggle-switch" id="autoPlayToggle">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </button>
+                    
+                    <button class="action-btn" onclick="toggleFeature('downloads')">
+                        <div class="action-icon">⬇️</div>
+                        <span>Offline Mode</span>
+                        <div class="toggle-switch" id="downloadsToggle">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Most Participative Forums Section -->
+            <section class="dashboard-section">
+                <h3 class="section-title">Your Most Active Discussion Forums</h3>
+                <div class="forums-list">
+                    <div class="forum-item">
+                        <div class="forum-icon">🎨</div>
+                        <div class="forum-content">
+                            <h4>Digital Art Techniques</h4>
+                            <p>15 discussions • 8 comments • Last active 2 days ago</p>
+                            <div class="forum-stats">
+                                <span class="participation-score">High Activity</span>
+                            </div>
+                        </div>
+                        <button class="forum-btn" onclick="joinForum('digital-art-techniques')">Continue Discussion</button>
+                    </div>
+                    
+                    <div class="forum-item">
+                        <div class="forum-icon">📸</div>
+                        <div class="forum-content">
+                            <h4>African Photography</h4>
+                            <p>12 discussions • 6 comments • Last active 1 week ago</p>
+                            <div class="forum-stats">
+                                <span class="participation-score">Medium Activity</span>
+                            </div>
+                        </div>
+                        <button class="forum-btn" onclick="joinForum('african-photography')">Continue Discussion</button>
+                    </div>
+                    
+                    <div class="forum-item">
+                        <div class="forum-icon">🎭</div>
+                        <div class="forum-content">
+                            <h4>Traditional Art Revival</h4>
+                            <p>8 discussions • 4 comments • Last active 3 days ago</p>
+                            <div class="forum-stats">
+                                <span class="participation-score">Medium Activity</span>
+                            </div>
+                        </div>
+                        <button class="forum-btn" onclick="joinForum('traditional-art-revival')">Continue Discussion</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity Section -->
+            <section class="dashboard-section">
+                <h3 class="section-title">Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">📺</div>
+                        <div class="activity-content">
+                            <h4>Watched "African Art Renaissance"</h4>
+                            <p>Completed 45 minutes ago</p>
+                        </div>
+                        <button class="activity-btn" onclick="markAsCompleted(this)">Mark Complete</button>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">🎪</div>
+                        <div class="activity-content">
+                            <h4>Registered for "Digital Art Workshop"</h4>
+                            <p>Event scheduled for Dec 15, 2024</p>
+                        </div>
+                        <button class="activity-btn" onclick="viewEventDetails('digital-art-workshop')">View Event</button>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">💬</div>
+                        <div class="activity-content">
+                            <h4>Commented on "Digital Art Techniques" forum</h4>
+                            <p>2 days ago</p>
+                        </div>
+                        <button class="activity-btn" onclick="viewComment('digital-art-techniques')">View Comment</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section class="dashboard-section">
+                <h3 class="section-title">Recommended for You</h3>
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <div class="rec-icon">🎨</div>
+                        <h4>Street Art Stories</h4>
+                        <p>Based on your interest in urban art</p>
+                        <button class="rec-btn" onclick="watchContent('Street Art Stories')">Watch Now</button>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="rec-icon">👩‍🎨</div>
+                        <h4>Women in Art</h4>
+                        <p>Celebrating female artists</p>
+                        <button class="rec-btn" onclick="watchContent('Women in Art')">Watch Now</button>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="rec-icon">📚</div>
+                        <h4>Art and Technology Fusion</h4>
+                        <p>Innovative art techniques</p>
+                        <button class="rec-btn" onclick="watchContent('Art and Technology Fusion')">Read Now</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <!-- Footer content removed as requested -->
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

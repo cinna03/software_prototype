@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-features.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="calendar.html" class="nav-link active">Calendar</a>
+        </nav>
+        
+        <main class="calendar-content">
+            <h2 class="content-title">Your Calendar</h2>
+            <p class="content-text">Manage your event schedule and never miss an important date</p>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="calendar-nav" onclick="previousMonth()">‹</button>
+                    <h3 id="currentMonth">December 2024</h3>
+                    <button class="calendar-nav" onclick="nextMonth()">›</button>
+                </div>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    
+                    <!-- Calendar days will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="upcoming-events">
+                <h3>Upcoming Events</h3>
+                <div class="events-list">
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="day">15</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Digital Art Workshop</h4>
+                            <p>📍 Lagos Art Center, Nigeria • 2:00 PM</p>
+                            <span class="event-status registered">Registered</span>
+                        </div>
+                        <button class="event-action" onclick="viewEventDetails('digital-art-workshop')">View Details</button>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="day">20</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>African Art Exhibition</h4>
+                            <p>🌐 Virtual Gallery • 7:00 PM</p>
+                            <span class="event-status registered">Registered</span>
+                        </div>
+                        <button class="event-action" onclick="viewEventDetails('african-art-exhibition')">View Details</button>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="day">25</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Street Photography Exhibition</h4>
+                            <p>📍 National Museum, Abuja • 6:00 PM</p>
+                            <span class="event-status registered">Registered</span>
+                        </div>
+                        <button class="event-action" onclick="viewEventDetails('street-photography-exhibition')">View Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calendar-settings">
+                <h3>Calendar Settings</h3>
+                <div class="settings-options">
+                    <label class="setting-item">
+                        <input type="checkbox" checked> Enable event reminders
+                    </label>
+                    <label class="setting-item">
+                        <input type="checkbox" checked> Check for schedule conflicts
+                    </label>
+                    <label class="setting-item">
+                        <input type="checkbox"> Sync with external calendar
+                    </label>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>

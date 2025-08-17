@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <!-- Navigation Links -->
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="calendar.html" class="nav-link">Calendar</a>
+            <a href="login.html" class="nav-link active">Login</a>
+        </nav>
+        
+        <main class="auth-content">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2 class="content-title">Welcome Back</h2>
+                    <p class="content-text">Sign in to access your Cinnarios account</p>
+                </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn" id="loginBtn">
+                        <span class="btn-text">Sign In</span>
+                        <span class="btn-loader" style="display: none;">Signing in...</span>
+                    </button>
+                    
+                    <div class="auth-divider">
+                        <span>or</span>
+                    </div>
+                    
+                    <button type="button" class="auth-btn google-btn">
+                        <span>Continue with Google</span>
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up</a></p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <!-- Footer content removed as requested -->
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-features.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="profile.html" class="nav-link active">Profile</a>
+            <a href="events.html" class="nav-link">Events</a>
+            <a href="calendar.html" class="nav-link">Calendar</a>
+        </nav>
+        
+        <main class="profile-content">
+            <h2 class="content-title">Your Profile</h2>
+            <div class="profile-container">
+                <div class="profile-picture">
+                    <img src="images/download (32).jpg" alt="Profile Picture" id="profileImage">
+                    <button class="change-photo-btn">Change Photo</button>
+                </div>
+                
+                <form class="profile-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" value="creative_user">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea placeholder="Tell us about yourself...">Passionate about African art and creative expression.</textarea>
+                    </div>
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Cinnarios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-features.css">
+</head>
+<body>
+    <div class="background-container">
+        <div class="blurred-background">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Green leaves background" class="background-image">
+        </div>
+    </div>
+    
+    <div class="content-overlay">
+        <header class="main-page-header">
+            <div class="menu-section">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="site-title">cinnarios</h1>
+            </div>
+        </header>
+        
+        <nav class="page-navigation">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="documentary.html" class="nav-link">Documentary</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="events.html" class="nav-link active">Events</a>
+            <a href="calendar.html" class="nav-link">Calendar</a>
+        </nav>
+        
+        <main class="events-content">
+            <h2 class="content-title">Artistic Events</h2>
+            <p class="content-text">Discover and join creative events happening locally and online</p>
+            
+            <div class="events-filters">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="local">Local</button>
+                <button class="filter-btn" data-filter="online">Online</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn" data-filter="exhibition">Exhibitions</button>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card" data-category="local workshop">
+                    <div class="event-image">
+                        <img src="images/download (27).jpg" alt="Digital Art Workshop">
+                        <span class="event-type local">Local</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Digital Art Workshop</h3>
+                        <p class="event-date">Dec 15, 2024 • 2:00 PM</p>
+                        <p class="event-location">📍 Lagos Art Center, Nigeria</p>
+                        <p class="event-description">Learn digital painting techniques from professional artists. Perfect for beginners and intermediate artists.</p>
+                        <div class="event-meta">
+                            <span class="event-price">Free</span>
+                            <span class="event-capacity">15 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event-id="digital-art-workshop" onclick="registerForEvent('digital-art-workshop')">Register Now</button>
+                    </div>
+                </div>
+                
+                <div class="event-card" data-category="online exhibition">
+                    <div class="event-image">
+                        <img src="images/download (28).jpg" alt="African Art Exhibition">
+                        <span class="event-type online">Online</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>African Art Exhibition</h3>
+                        <p class="event-date">Dec 20, 2024 • 7:00 PM</p>
+                        <p class="event-location">🌐 Virtual Gallery</p>
+                        <p class="event-description">Explore contemporary African art from emerging artists across the continent.</p>
+                        <div class="event-meta">
+                            <span class="event-price">Free</span>
+                            <span class="event-capacity">Unlimited</span>
+                        </div>
+                        <button class="register-btn" data-event-id="african-art-exhibition" onclick="registerForEvent('african-art-exhibition')">Join Event</button>
+                    </div>
+                </div>
+                
+                <div class="event-card" data-category="local exhibition">
+                    <div class="event-image">
+                        <img src="images/download (29).jpg" alt="Photography Exhibition">
+                        <span class="event-type local">Local</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Street Photography Exhibition</h3>
+                        <p class="event-date">Dec 25, 2024 • 6:00 PM</p>
+                        <p class="event-location">📍 National Museum, Abuja</p>
+                        <p class="event-description">A showcase of street photography capturing the essence of Nigerian urban life.</p>
+                        <div class="event-meta">
+                            <span class="event-price">₦500</span>
+                            <span class="event-capacity">50 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event-id="street-photography-exhibition" onclick="registerForEvent('street-photography-exhibition')">Buy Ticket</button>
+                    </div>
+                </div>
+                
+                <div class="event-card" data-category="online workshop">
+                    <div class="event-image">
+                        <img src="images/download (30).jpg" alt="Creative Writing Workshop">
+                        <span class="event-type online">Online</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Creative Writing Workshop</h3>
+                        <p class="event-date">Dec 30, 2024 • 3:00 PM</p>
+                        <p class="event-location">🌐 Zoom Meeting</p>
+                        <p class="event-description">Develop your storytelling skills with award-winning African authors.</p>
+                        <div class="event-meta">
+                            <span class="event-price">₦2000</span>
+                            <span class="event-capacity">25 spots left</span>
+                        </div>
+                        <button class="register-btn" data-event-id="creative-writing-workshop" onclick="registerForEvent('creative-writing-workshop')">Register Now</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>
